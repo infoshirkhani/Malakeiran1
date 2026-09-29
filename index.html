@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ملکه ذهن | ورود</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+            background-color: #1a0b2e; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* کانتینر اصلی اپلیکیشن */
+        .app-container {
+            width: 100%;
+            max-width: 412px; 
+            height: 100vh;
+            max-height: 892px; 
+            position: relative;
+            overflow: hidden;
+            
+            /* پس‌زمینه گرادیانت بنفش-طلایی (دقیقاً مشابه تصویر اول شما) */
+            background: linear-gradient(135deg, #2b1055 0%, #4a2c7a 40%, #c79a3b 100%);
+            
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+            display: flex;
+            flex-direction: column;
+            padding: 40px 25px 20px 25px;
+        }
+
+        /* هدر و لوگو */
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        /* جایگاه لوگو */
+        .logo-container {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            
+            /* 🟢 این خط تصویر لوگوی شما را به صورت داخلی (Base64) لود می‌کند */
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=');
+            background-size: contain; 
+            background-repeat: no-repeat; 
+            background-position: center;
+            
+            /* هاله طلایی دور لوگو */
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+        }
+
+        .app-title {
+            color: #ffd700;
+            font-size: 32px;
+            font-weight: 900;
+            margin-top: 15px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.8), 0 0 20px rgba(255, 215, 0, 0.5);
+            letter-spacing: 1px;
+        }
+
+        /* فرم ورود (افکت شیشه‌ای) */
+        .form-container {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 24px;
+            padding: 30px 20px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .input-group label {
+            color: #e0d0ff;
+            font-size: 14px;
+            font-weight: 700;
+            padding-right: 5px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 16px 15px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background-color: rgba(0, 0, 0, 0.3);
+            color: #ffffff;
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: #ffd700;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* دکمه اصلی طلایی */
+        .btn-primary {
+            width: 100%;
+            padding: 16px;
+            border-radius: 14px;
+            border: none;
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+            font-size: 18px;
+            font-weight: 900;
+            color: #1a0b2e;
+            cursor: pointer;
+            background: linear-gradient(to bottom, #ffe066, #d4af37);
+            box-shadow: 0 5px 0 #a67c00, 0 8px 20px rgba(0,0,0,0.5);
+            margin-top: 5px;
+            transition: all 0.1s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 #a67c00, 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        /* افکت براق دکمه */
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 5%;
+            width: 90%;
+            height: 40%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.7), rgba(255,255,255,0));
+            border-radius: 8px 8px 20px 20px;
+        }
+
+        /* لینک‌های پایین فرم */
+        .form-links {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            padding: 0 5px;
+        }
+
+        .form-links a {
+            color: #c0a0ff;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        .form-links a:hover {
+            color: #ffd700;
+        }
+
+        /* فوتر */
+        .footer-text {
+            margin-top: auto;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 11px;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- هدر و لوگو -->
+        <div class="header">
+            <div class="logo-container">
+                <!-- تصویر لوگو از طریق CSS (Base64) لود می‌شود -->
+            </div>
+            <h1 class="app-title">ملکه ذهن</h1>
+        </div>
+
+        <!-- فرم ورود -->
+        <form class="form-container" onsubmit="event.preventDefault(); alert('ورود انجام شد!');">
+            
+            <div class="input-group">
+                <label for="username">نام کاربری</label>
+                <input type="text" id="username" placeholder="نام کاربری خود را وارد کنید" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">رمز عبور</label>
+                <input type="password" id="password" placeholder="رمز عبور (حداقل ۶ کاراکتر)" required>
+            </div>
+
+            <button type="submit" class="btn-primary">ورود به بازی</button>
+
+            <div class="form-links">
+                <a href="#">فراموشی رمز عبور</a>
+                <a href="#">ثبت‌نام جدید</a>
+            </div>
+        </form>
+
+        <!-- فوتر -->
+        <div class="footer-text">
+            طراحی شده برای ملکه ذهن - نسخه ۱.۰.۰
+        </div>
+
+    </div>
+
+</body>
+</html>
